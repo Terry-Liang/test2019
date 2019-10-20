@@ -1,0 +1,59 @@
+步骤1：国际惯例先备份：sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+步骤2：打开编辑源列表：sudo gedit /etc/apt/sources.list
+步骤3：将文件内所有内容全部清空，将下面阿里源全部粘贴进去即可
+          deb http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse
+          deb http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse
+          deb http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse
+          deb http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse
+          deb http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse
+          deb-src http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse
+          deb-src http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse
+          deb-src http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse
+          deb-src http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse
+          deb-src http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse
+
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+
+步骤4：用新的阿里源更新一下
+          更新软件列表：sudo apt-get update
+          更新已有软件：sudo apt-get upgrade
+安装完整的man文档
+输入命令:sudo apt-get install manpages-de  manpages-de-dev  manpages-dev glibc-doc manpages-posix-dev manpages-posix
+安装中文的man文档
+         步骤1:sudo apt-get install manpages-zh
+         步骤2:修改.bashrc文件:  sudo gedit ~/.bashrc
+         步骤3:在bashrc文件加入:alias cman='man -M /usr/share/man/zh_CN'
+安装搜狗输入法
+          步骤1：进入搜狗输入法官网，页面顶部有输入法Linux版
+          步骤2：安装fcitx输入框架：sudo apt-get install fcitx
+          步骤3：安装输入法：sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb
+          步骤4：同样打开Setting->Region&Language->Manage Installed Languages
+          步骤5：输入框架选fcitx，然后点击Apply System-Wide应用到全局
+
+
+// 卸载自带的中文输入法
+sudo apt remove 'ibus*'
+// 安装fcitx输入法配置框架
+sudo apt install fcitx-bin fcitx-table
+// 在设置语言中，选择语言输入框架为fcitx，应用到整个系统。
+// 下载搜狗拼音linux版本
+https://pinyin.sogou.com/linux/
+// 搜狗拼音的官方安装教程,可以参考，也就是说先安装fcitx框架，然后安装输入法
+//https://pinyin.sogou.com/linux/help.php
+// 双击安装
+
+卸载搜狗拼音。
+
+   sudo apt-get  remove  sogoupinyin
+   sudo apt-get  purge  sogoupinyin
+   sudo apt-get autoremove
